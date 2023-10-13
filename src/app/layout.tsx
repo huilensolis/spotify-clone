@@ -1,8 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Figtree } from 'next/font/google'
+import { GlobalLayout } from '@layouts/index'
 
-const inter = Inter({ subsets: ['latin'] })
+const figtree = Figtree({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
 	title: 'Spotify Clone',
@@ -16,7 +17,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={`${figtree.className}`}>
+				<GlobalLayout>{children}</GlobalLayout>
+			</body>
 		</html>
 	)
 }
