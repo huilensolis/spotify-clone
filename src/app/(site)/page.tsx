@@ -9,7 +9,7 @@ export default function Home() {
 					<Box>
 						<Nav />
 					</Box>
-					<Box extraStyles="hidden lg:inline-block">
+					<Box extraStyles="hidden lg:inline-block overflow-y-auto">
 						<Library />
 					</Box>
 				</AsideLayout>
