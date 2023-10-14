@@ -20,14 +20,14 @@ export function Library() {
 		}
 	}
 
-	const mockSongs: SongMetadata[] = Array(4).fill({
+	const mockSongs: SongMetadata[] = Array(16).fill({
 		image: 'https://i.pinimg.com/564x/53/35/34/5335343123bb168b1a1c757f10a931f5.jpg',
 		title: 'my song title',
 		author: 'Michael Jordan',
 	})
 
 	return (
-		<section className="flex flex-col h-full gap-4">
+		<section className="flex flex-col gap-4 w-full h-full">
 			<header className="flex gap-4 justify-between">
 				<section className="flex gap-4">
 					<DiscIcon className="h-6 w-6 fill-neutral-400" />
@@ -41,19 +41,18 @@ export function Library() {
 					<PLusIcon className="h-6 w-6 fill-neutral-400 hover:fill-neutral-50 transition-all delay-75" />
 				</button>
 			</header>
-			<div>
-				<ul className="flex flex-col overflow-y-auto gap-4">
-					{mockSongs.map((song, index) => (
-						<li key={index}>
-							<SongCard
-								author={song.author}
-								image={song.image}
-								title={song.title}
-							/>
-						</li>
-					))}
-				</ul>
-			</div>
+			<ul className="flex flex-col h-full overflow-y-auto gap-4">
+				{mockSongs.map((song, index) => (
+					<li key={index}>
+						<SongCard
+							author={song.author}
+							image={song.image}
+							title={song.title}
+						/>
+					</li>
+				))}
+			</ul>
 		</section>
 	)
 }
+//h-[calc(100vh-180px)] w-[calc(100%-7px)]

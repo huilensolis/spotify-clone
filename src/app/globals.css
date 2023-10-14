@@ -1,3 +1,38 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	--sb-track-color: transparent;
+	--sb-thumb-color: #595959;
+	--sb-size: 15px;
+
+	scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+
+body::-webkit-scrollbar {
+	width: var(--sb-size);
+	background-color: var(--sb-thumb-color);
+}
+
+body::-webkit-scrollbar-track {
+	background-color: var(--sb-track-color);
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: var(--sb-thumb-color);
+}
+
+/* // chikd elements */
+body > * ::-webkit-scrollbar {
+	width: var(--sb-size);
+	background-color: var(--sb-track-color);
+}
+
+body > * ::-webkit-scrollbar-track {
+	background-color: var(--sb-track-color);
+}
+
+body > * ::-webkit-scrollbar-thumb {
+	background-color: var(--sb-thumb-color);
+}
