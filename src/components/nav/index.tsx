@@ -3,11 +3,7 @@
 import { useMemo } from 'react'
 import { usePathname } from 'next/navigation'
 import { type NavItem } from '@models/index'
-import {
-	NavItem as NavItemComponent,
-	LinkFill,
-	LinkNormal,
-} from '@components/index'
+import { NavItem as NavItemComponent, AuthButtons } from '@components/index'
 import { HeartFill, HomeIcon, SearchIcon } from '@icons/index'
 
 export function Nav() {
@@ -50,13 +46,8 @@ export function Nav() {
 					</li>
 				))}
 			</div>
-			<div className="lg:hidden flex gap-4">
-				<li>
-					<LinkFill href="/auth">Log in</LinkFill>
-				</li>
-				<li>
-					<LinkNormal href="/auth">Register</LinkNormal>
-				</li>
+			<div className="lg:hidden inline-block">
+				<AuthButtons />
 			</div>
 		</ul>
 	)
