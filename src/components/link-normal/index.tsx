@@ -14,7 +14,7 @@ export function LinkNormal({
 		<Link
 			href={href}
 			target={target}
-			className="text-slate-300 font-semibold hover:text-slate-50 transition-all delay-75"
+			className="text-neutral-400 font-semibold hover:text-neutral-200 transition-all delay-75"
 		>
 			{children}
 		</Link>

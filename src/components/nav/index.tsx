@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import { usePathname } from 'next/navigation'
-import { type NavItem } from '@modles/index'
+import { type NavItem } from '@models/index'
 import {
 	NavItem as NavItemComponent,
 	LinkFill,
@@ -16,19 +16,19 @@ export function Nav() {
 	const routes = useMemo(
 		(): NavItem[] => [
 			{
-				name: 'home',
+				name: 'Home',
 				href: '/',
 				icon: HomeIcon,
 				isActive: currentPath === '/',
 			},
 			{
-				name: 'search',
+				name: 'Search',
 				href: 'search',
 				icon: SearchIcon,
 				isActive: currentPath === 'search',
 			},
 			{
-				name: 'favorites',
+				name: 'Favorites',
 				href: 'fav',
 				icon: HeartFill,
 				isActive: currentPath === 'fav',

@@ -7,7 +7,7 @@
 			"@components/*": ["./src/components/*"],
 			"@layouts/*": ["./src/layouts/*"],
 			"@hooks/*": ["./src/hooks/*"],
-			"@modles/*": ["./src/models/*"],
+			"@models/*": ["./src/models/*"],
 			"@icons/*": ["./src/icons/*"]
 		},
 		"target": "es5",

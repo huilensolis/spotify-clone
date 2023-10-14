@@ -5,8 +5,8 @@ import { useMemo } from 'react'
 export function NavItem({ name, icon: Icon, href, isActive }: NavItem) {
 	const color = `${
 		isActive
-			? 'fill-white text-white'
-			: 'fill-gray-400 text-gray-400 group-hover:fill-white group-hover:text-white transition-all delay-75'
+			? 'fill-neutral-50 text-neutral-50'
+			: 'fill-gray-400 text-gray-400 group-hover:fill-neutral-50 group-hover:text-neutral-50 transition-all delay-75'
 	}`
 
 	return (

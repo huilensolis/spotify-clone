@@ -2,8 +2,8 @@ export function HeartEmpty(props: any) {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
-			height="1em"
-			width="2em"
+			height="1.25rem"
+			width="1.25rem"
 			{...props}
 			viewBox="0 0 512 512"
 		>
