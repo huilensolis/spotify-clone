@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Figtree } from 'next/font/google'
-import { GlobalLayout } from 'src/layouts/index'
+import { GlobalLayout } from '@layouts/index'
 
 const figtree = Figtree({ subsets: ['latin'] })
 

@@ -5,9 +5,10 @@
 		"paths": {
 			"@/*": ["."],
 			"@components/*": ["./src/components/*"],
-			"@layouts/*": ["src/layouts/*"],
+			"@layouts/*": ["./src/layouts/*"],
 			"@hooks/*": ["./src/hooks/*"],
-			"@modles/*": ["./src/models/*"]
+			"@modles/*": ["./src/models/*"],
+			"@icons/*": ["./src/icons/*"]
 		},
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],

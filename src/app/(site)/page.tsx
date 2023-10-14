@@ -1,3 +1,12 @@
+import { Nav, Box } from '@components/index'
+import { AsideLayout } from '@layouts/index'
+
 export default function Home() {
-	return <>hello world</>
+	return (
+		<AsideLayout>
+			<Box>
+				<Nav />
+			</Box>
+		</AsideLayout>
+	)
 }
