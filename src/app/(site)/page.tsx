@@ -4,7 +4,7 @@ import { AsideLayout, MainLayout } from '@layouts/index'
 export default function Home() {
 	return (
 		<>
-			<div className="flex p-2 gap-2 flex-col lg:flex-row max-h-screen">
+			<div className="flex p-2 gap-2 flex-col lg:flex-row h-full">
 				<AsideLayout>
 					<Box>
 						<Nav />

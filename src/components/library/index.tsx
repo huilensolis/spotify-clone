@@ -41,7 +41,7 @@ export function Library() {
 					<PLusIcon className="h-6 w-6 fill-neutral-400 hover:fill-neutral-50 transition-all delay-75" />
 				</button>
 			</header>
-			<ul className="flex flex-col h-full overflow-y-auto gap-4 w-[calc(100%-6.5px)]">
+			<ul className="flex flex-col overflow-y-auto gap-4 w-[calc(100%-6.5px)]">
 				{mockSongs.map((song, index) => (
 					<li key={index}>
 						<SongCard
