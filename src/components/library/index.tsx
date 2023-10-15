@@ -1,9 +1,9 @@
 'use client'
 
-import { DiscIcon, PLusIcon } from '@icons/index'
+import { DiscIcon, PLusIcon } from '@icons'
 import { useState } from 'react'
-import { type SongMetadata } from '@models/index'
-import { SongCard } from '@components/index'
+import { type SongMetadata } from '@models'
+import { SongCard } from '@components'
 
 export function Library() {
 	const [disableBtn, setDisableBtn] = useState<boolean>(false)

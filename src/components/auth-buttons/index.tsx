@@ -1,25 +1,44 @@
 'use client'
 
-import { LinkFill, LinkNormal, SecondaryBtn } from '@components/index'
+import { PrimaryBtn, SecondaryBtn } from '@components'
 import { useState } from 'react'
+import { useAuthModalStore, useUser } from '@hooks'
+import { useSupabaseClient } from '@supabase/auth-helpers-react'
+import { useRouter } from 'next/navigation'
 
 export function AuthButtons() {
-	const [isLogged, setIsLogged] = useState(false)
+	const { open } = useAuthModalStore()
+	const [disabled, setDisabled] = useState(false)
+
+	const { user } = useUser()
+
+	const router = useRouter()
+	const supabaseCLient = useSupabaseClient()
+
+	const handleLogOut = async () => {
+		setDisabled(true)
+		const { error } = await supabaseCLient.auth.signOut()
+
+		setDisabled(false)
+		// reset any playing songs
+		router.refresh()
+	}
+
 	return (
-		<ul className="flex gap-4">
-			{!isLogged && (
+		<ul className="flex gap-4 justify-center items-center">
+			{!user && (
 				<>
 					<li>
-						<LinkFill href="/auth">Log in</LinkFill>
+						<PrimaryBtn OnClick={open}>Log in</PrimaryBtn>
 					</li>
 					<li>
-						<LinkNormal href="/auth">Sign up</LinkNormal>
+						<SecondaryBtn OnClick={open}>Sign up</SecondaryBtn>
 					</li>
 				</>
 			)}
-			{isLogged && (
+			{user && (
 				<li>
-					<SecondaryBtn OnClick={() => {}} disabled={false}>
+					<SecondaryBtn OnClick={handleLogOut} disabled={disabled}>
 						Log out
 					</SecondaryBtn>
 				</li>

@@ -14,7 +14,7 @@ export function LinkFill({
 		<Link
 			href={href}
 			target={target}
-			className="bg-white text-black font-semibold rounded-full py-2 px-6 hover:bg-slate-200 transition-all delay-75"
+			className="bg-neutral-50 text-neutral-900 font-semibold rounded-full py-2 px-6 hover:bg-slate-200 transition-all delay-75"
 		>
 			{children}
 		</Link>

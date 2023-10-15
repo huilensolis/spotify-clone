@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { User } from '@supabase/auth-helpers-nextjs'
-import { Subscription, UserDetails } from '@models/index'
+import { Subscription, UserDetails } from '@models'
 import {
 	useSessionContext,
 	useUser as useSupabaseUser,
@@ -74,6 +74,7 @@ export function UserContextProvider(props: Props) {
 			setUserDetails(null)
 			setUserSubscription(null)
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [user, isLoadingUser])
 
 	const value = {
@@ -93,4 +94,5 @@ export const useUser = () => {
 	if (context === undefined) {
 		throw new Error('useUser must be used within a UserContextProvider')
 	}
+	return context
 }

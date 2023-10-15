@@ -4,11 +4,12 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["."],
-			"@components/*": ["./src/components/*"],
-			"@layouts/*": ["./src/layouts/*"],
-			"@hooks/*": ["./src/hooks/*"],
-			"@models/*": ["./src/models/*"],
-			"@icons/*": ["./src/icons/*"]
+			"@components": ["./src/components"],
+			"@layouts": ["./src/layouts"],
+			"@hooks": ["./src/hooks"],
+			"@models": ["./src/models"],
+			"@icons": ["./src/icons"],
+			"@providers": ["./src/providers"]
 		},
 		"target": "es5",
 		"lib": ["dom", "dom.iterable", "esnext"],

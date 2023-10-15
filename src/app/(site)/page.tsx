@@ -1,7 +1,6 @@
-import { Nav, Box, Library, Header } from '@components/index'
-import { AsideLayout, MainLayout } from '@layouts/index'
-import { SupabaseProvider } from '../../providers/supabase'
-import { UserProvider } from '../../providers/user/index'
+import { Nav, Box, Library, Header } from '@components'
+import { AsideLayout, MainLayout } from '@layouts'
+import { SupabaseProvider, UserProvider, ModalProvider } from '@providers'
 
 export default function Home() {
 	return (
@@ -9,6 +8,7 @@ export default function Home() {
 			<div className="flex p-2 gap-2 flex-col lg:flex-row h-full">
 				<SupabaseProvider>
 					<UserProvider>
+						<ModalProvider />
 						<AsideLayout>
 							<Box>
 								<Nav />

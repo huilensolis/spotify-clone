@@ -2,9 +2,9 @@
 
 import { useMemo } from 'react'
 import { usePathname } from 'next/navigation'
-import { type NavItem } from '@models/index'
-import { NavItem as NavItemComponent, AuthButtons } from '@components/index'
-import { HeartFill, HomeIcon, SearchIcon } from '@icons/index'
+import { type NavItem } from '@models'
+import { NavItem as NavItemComponent, AuthButtons } from '@components'
+import { HeartFill, HomeIcon, SearchIcon } from '@icons'
 
 export function Nav() {
 	const currentPath = usePathname()

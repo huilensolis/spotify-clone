@@ -1,4 +1,4 @@
-import { SongMetadata } from '@models/index'
+import { SongMetadata } from '@models'
 import Image from 'next/image'
 
 export function SongCard({ image, title, author }: SongMetadata) {
