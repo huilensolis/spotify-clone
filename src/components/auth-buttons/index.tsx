@@ -13,7 +13,7 @@ export function AuthButtons() {
 						<LinkFill href="/auth">Log in</LinkFill>
 					</li>
 					<li>
-						<LinkNormal href="/auth">Register</LinkNormal>
+						<LinkNormal href="/auth">Sign up</LinkNormal>
 					</li>
 				</>
 			)}
