@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { useAuthModalStore, useUser } from '@hooks'
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { UserIcon } from '../../icons'
 
 export function AuthButtons() {
 	const { open } = useAuthModalStore()
@@ -37,11 +39,24 @@ export function AuthButtons() {
 				</>
 			)}
 			{user && (
-				<li>
-					<SecondaryBtn OnClick={handleLogOut} disabled={disabled}>
-						Log out
-					</SecondaryBtn>
-				</li>
+				<>
+					<li>
+						<SecondaryBtn
+							OnClick={handleLogOut}
+							disabled={disabled}
+						>
+							Log out
+						</SecondaryBtn>
+					</li>
+					<li>
+						<Link
+							href={'/profile'}
+							className="bg-neutral-50 text-neutral-900 font-semibold rounded-full p-2 hover:bg-slate-200 transition-all delay-75 flex justify-center items-center text-center"
+						>
+							<UserIcon />
+						</Link>
+					</li>
+				</>
 			)}
 		</ul>
 	)

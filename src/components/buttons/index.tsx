@@ -37,7 +37,7 @@ export function SecondaryBtn({
 			onClick={OnClick}
 			disabled={disabled}
 			aria-disabled={disabled}
-			className="flex justify-center items-center text-center text-neutral-300 hover:text-neutral-200 transition-all delay-75"
+			className="flex justify-center items-center text-center text-neutral-300  font-semibold hover:text-neutral-200 transition-all delay-75"
 		>
 			{children}
 		</button>
