@@ -7,6 +7,7 @@ import { useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { UserIcon } from '../../icons'
+import toast from 'react-hot-toast'
 
 export function AuthButtons() {
 	const { open } = useAuthModalStore()
@@ -24,6 +25,12 @@ export function AuthButtons() {
 		setDisabled(false)
 		// reset any playing songs
 		router.refresh()
+
+		if (error) {
+			toast.error(error.message)
+		} else {
+			toast.success('logged out sucessfully')
+		}
 	}
 
 	return (

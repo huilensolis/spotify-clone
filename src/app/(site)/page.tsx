@@ -1,11 +1,13 @@
 import { Nav, Box, Library, Header } from '@components'
 import { AsideLayout, MainLayout } from '@layouts'
 import { SupabaseProvider, UserProvider, ModalProvider } from '@providers'
+import { ToasterProvider } from '../../providers/toaster/index'
 
 export default function Home() {
 	return (
 		<>
 			<div className="flex p-2 gap-2 flex-col lg:flex-row h-full">
+				<ToasterProvider />
 				<SupabaseProvider>
 					<UserProvider>
 						<ModalProvider />
