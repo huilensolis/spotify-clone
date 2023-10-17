@@ -25,7 +25,7 @@ export function Modal({
 				onOpenChange={onChange}
 			>
 				<Dialog.Portal>
-					<Dialog.Overlay className="bg-neutral-950/90 fixed inset-0 flex justify-center items-center">
+					<Dialog.Overlay className="bg-neutral-950/90 backdrop-blur-sm fixed inset-0 flex justify-center items-center">
 						<Dialog.Content className="drop-shadow-md border border-neutral-700 max-h-full md:h-auto md:max-h-[85vh] w-full h-full md:w-[90vw] md:max-w-[450px] rounded-md bg-neutral-800 focus:outline-none focus-visible:outline-none p-6 text-neutral-50">
 							<Dialog.Title className="text-xl text-center font-bold mb-4">
 								{title}

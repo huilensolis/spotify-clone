@@ -4,20 +4,24 @@ import { DiscIcon, PLusIcon } from '@icons'
 import { useState } from 'react'
 import { type SongMetadata } from '@models'
 import { SongCard } from '@components'
+import { useAuthModalStore, useUploadModalStore, useUser } from '../../hooks'
 
 export function Library() {
-	const [disableBtn, setDisableBtn] = useState<boolean>(false)
+	const { open: openAuthModal } = useAuthModalStore()
+	const { open: openUploadModal } = useUploadModalStore()
+	const { user } = useUser()
 
 	const handleOnclick = () => {
-		setDisableBtn(true)
-
-		try {
-			// we uplaod the iamge
-		} catch (error) {
-			// catch error
-		} finally {
-			setDisableBtn(false)
+		// we check the user is logged
+		if (!user) {
+			openAuthModal()
+			return
 		}
+
+		// TODO: check for subscription type
+
+		openUploadModal()
+		return
 	}
 
 	const mockSongs: SongMetadata[] = Array(16).fill({
@@ -33,11 +37,7 @@ export function Library() {
 					<DiscIcon className="h-6 w-6 fill-neutral-400" />
 					<h2 className="text-neutral-400 font-semibold">Library</h2>
 				</section>
-				<button
-					onClick={handleOnclick}
-					disabled={disableBtn}
-					aria-disabled={disableBtn}
-				>
+				<button onClick={handleOnclick}>
 					<PLusIcon className="h-6 w-6 fill-neutral-400 hover:fill-neutral-50 transition-all delay-75" />
 				</button>
 			</header>
