@@ -38,10 +38,10 @@ export function AuthButtons() {
 			{!user && (
 				<>
 					<li>
-						<PrimaryBtn OnClick={open}>Log in</PrimaryBtn>
+						<PrimaryBtn onClick={open}>Log in</PrimaryBtn>
 					</li>
 					<li>
-						<SecondaryBtn OnClick={open}>Sign up</SecondaryBtn>
+						<SecondaryBtn onClick={open}>Sign up</SecondaryBtn>
 					</li>
 				</>
 			)}
@@ -49,7 +49,7 @@ export function AuthButtons() {
 				<>
 					<li>
 						<SecondaryBtn
-							OnClick={handleLogOut}
+							onClick={handleLogOut}
 							disabled={disabled}
 						>
 							Log out
