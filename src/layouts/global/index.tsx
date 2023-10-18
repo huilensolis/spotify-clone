@@ -1,9 +1,33 @@
 import { ReactNode } from 'react'
 
-export function GlobalLayout({ children }: { children: ReactNode }) {
+import { Nav, Box, Library } from '@components'
+import { AsideLayout } from '@layouts'
+import { SupabaseProvider, UserProvider, ModalProvider } from '@providers'
+import { ToasterProvider } from '../../providers/toaster/index'
+import { getSongsByUserId } from '@actions'
+
+export async function GlobalLayout({ children }: { children: ReactNode }) {
+	const userLibrary = await getSongsByUserId()
+
 	return (
 		<div className="bg-black h-screen w-full text-neutral-50 overflow-y-hidden [&>*]:focus:outline-1 [&>*]:focus:outline-neutral-700">
-			{children}
+			<div className="flex p-2 pb-0 gap-2 flex-col lg:flex-row h-full">
+				<ToasterProvider />
+				<SupabaseProvider>
+					<UserProvider>
+						<ModalProvider />
+						<AsideLayout>
+							<Box>
+								<Nav />
+							</Box>
+							<Box extraStyles="hidden lg:inline-block overflow-y-auto flex-grow">
+								<Library songs={userLibrary} />
+							</Box>
+						</AsideLayout>
+						{children}
+					</UserProvider>
+				</SupabaseProvider>
+			</div>
 		</div>
 	)
 }

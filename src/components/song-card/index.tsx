@@ -7,7 +7,7 @@ import { TriangleIcon } from '@icons'
 export function SongCard({ song }: { song: Song }) {
 	const imagePath = useLoadImages(song)
 	return (
-		<article className="flex w-full max-h-[calc(0.5rem*2+4rem)] gap-2 bg-transparent hover:bg-neutral-800 transition-all delay-75 p-2 rounded-md cursor-pointer group relative">
+		<article className="flex w-full max-h-[calc(0.5rem*2+4rem)] gap-2 bg-transparent hover:bg-neutral-800 transition-all delay-75 p-2 pb-3 rounded-md cursor-pointer group relative">
 			{/* eslint-disable-next-line @next/next/no-img-element */}
 			<img
 				src={imagePath ?? ''}
