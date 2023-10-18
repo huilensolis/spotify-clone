@@ -57,7 +57,6 @@ export function UploadModal() {
 					.upload(songId, songFile, {
 						upsert: false,
 					})
-			console.log(songData)
 			if (songError) {
 				setIsLoading(false)
 				toast.error('there its been an error uploading the song file')
@@ -83,6 +82,7 @@ export function UploadModal() {
 				author: author,
 				song_path: songData.path,
 				image_path: imageData.path,
+				user_id: user.id,
 			})
 			if (error) {
 				setIsLoading(false)

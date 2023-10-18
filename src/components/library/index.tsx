@@ -1,12 +1,11 @@
 'use client'
 
 import { DiscIcon, PLusIcon } from '@icons'
-import { useState } from 'react'
-import { type SongMetadata } from '@models'
+import { type Song } from '@models'
 import { SongCard } from '@components'
 import { useAuthModalStore, useUploadModalStore, useUser } from '../../hooks'
 
-export function Library() {
+export function Library({ songs }: { songs: Song[] }) {
 	const { open: openAuthModal } = useAuthModalStore()
 	const { open: openUploadModal } = useUploadModalStore()
 	const { user } = useUser()
@@ -24,15 +23,9 @@ export function Library() {
 		return
 	}
 
-	const mockSongs: SongMetadata[] = Array(16).fill({
-		image: 'https://i.pinimg.com/564x/53/35/34/5335343123bb168b1a1c757f10a931f5.jpg',
-		title: 'my song title',
-		author: 'Michael Jordan',
-	})
-
 	return (
 		<section className="flex flex-col gap-4 w-full h-full">
-			<header className="flex gap-4 justify-between">
+			<header className="flex gap-4 justify-between px-2">
 				<section className="flex gap-4">
 					<DiscIcon className="h-6 w-6 fill-neutral-400" />
 					<h2 className="text-neutral-400 font-semibold">Library</h2>
@@ -41,16 +34,16 @@ export function Library() {
 					<PLusIcon className="h-6 w-6 fill-neutral-400 hover:fill-neutral-50 transition-all delay-75" />
 				</button>
 			</header>
-			<ul className="flex flex-col overflow-y-auto gap-2 w-[calc(100%-6.5px)]">
-				{mockSongs.map((song, index) => (
-					<li key={index}>
-						<SongCard
-							author={song.author}
-							image={song.image}
-							title={song.title}
-						/>
-					</li>
-				))}
+			<ul className="flex flex-col overflow-y-auto gap-2 h-full w-[calc(100%-6.5px)]">
+				{songs.length >= 1 ? (
+					songs.map((song) => (
+						<li key={song.id} className="w-full">
+							<SongCard song={song} />
+						</li>
+					))
+				) : (
+					<span className="text-neutral-400">no songs available</span>
+				)}
 			</ul>
 		</section>
 	)

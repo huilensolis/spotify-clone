@@ -8,5 +8,12 @@ const config: Config = {
 		'./src/layouts/**/*',
 	],
 	plugins: [],
+	theme: {
+		extend: {
+			colors: {
+				'cm-black': '#121212',
+			},
+		},
+	},
 }
 export default config
