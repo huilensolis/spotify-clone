@@ -6,6 +6,8 @@ import { SupabaseProvider, UserProvider, ModalProvider } from '@providers'
 import { ToasterProvider } from '@providers'
 import { getSongsByUserId } from '@actions'
 
+export const revalidate = 0
+
 export async function GlobalLayout({ children }: { children: ReactNode }) {
 	const userLibrary = await getSongsByUserId()
 
