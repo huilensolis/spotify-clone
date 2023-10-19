@@ -11,7 +11,14 @@ export async function getSongsByUserId(): Promise<Song[]> {
 		await supabase.auth.getSession()
 
 	if (sessionError) {
+		console.log(
+			'there is been an error in get songs by user id with the session'
+		)
 		console.log(sessionError)
+		return []
+	}
+
+	if (sessionData.session?.user.id) {
 		return []
 	}
 

@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 
 import { Nav, Box, Library } from '@components'
-import { AsideLayout } from '@layouts'
+import { AsideLayout, MainLayout } from '@layouts'
 import { SupabaseProvider, UserProvider, ModalProvider } from '@providers'
-import { ToasterProvider } from '../../providers/toaster/index'
+import { ToasterProvider } from '@providers'
 import { getSongsByUserId } from '@actions'
 
 export async function GlobalLayout({ children }: { children: ReactNode }) {
@@ -24,7 +24,7 @@ export async function GlobalLayout({ children }: { children: ReactNode }) {
 								<Library songs={userLibrary} />
 							</Box>
 						</AsideLayout>
-						{children}
+						<MainLayout>{children}</MainLayout>
 					</UserProvider>
 				</SupabaseProvider>
 			</div>

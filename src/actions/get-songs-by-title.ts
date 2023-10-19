@@ -19,7 +19,7 @@ export async function getSongsByTitle(title: string): Promise<Song[]> {
 		.ilike('title', `%${title}%`)
 		.order('created_at', { ascending: false })
 
-	if (error) console.log(error)
+	if (error) console.log('error on get song by title'), console.log(error)
 
 	return (data as Song[]) || []
 }
