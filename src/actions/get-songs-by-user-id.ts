@@ -2,9 +2,15 @@ import { Song } from '@models'
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 
+export const dynamic = "force-dynamic"
+
+function getCookies() {
+	return cookies()
+}
+
 export async function getSongsByUserId(): Promise<Song[]> {
 	const supabase = createServerComponentClient({
-		cookies: cookies,
+		cookies: () => getCookies(),
 	})
 
 	const { data: sessionData, error: sessionError } =

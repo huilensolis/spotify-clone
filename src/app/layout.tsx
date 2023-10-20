@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 	description: 'A spotify clone built by Huilen Solis',
 }
 
+export const revalidate = 0;
+
 export default function RootLayout({
 	children,
 }: {

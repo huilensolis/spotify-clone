@@ -1,3 +1,3 @@
-export * from './get-songs'
-export * from './get-songs-by-user-id'
-export * from './get-songs-by-title'
+export { getSongs } from './get-songs'
+export { getSongsByUserId } from './get-songs-by-user-id'
+export { getSongsByTitle } from './get-songs-by-title'

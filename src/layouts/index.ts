@@ -1,3 +1,3 @@
-export * from './global'
-export * from './aside'
-export * from './main'
+export { GlobalLayout } from './global'
+export { AsideLayout } from './aside'
+export { MainLayout } from './main'

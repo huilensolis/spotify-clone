@@ -32,6 +32,7 @@ export function AuthModal() {
 			router.refresh()
 			close()
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [session])
 
 	return (
