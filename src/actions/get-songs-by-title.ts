@@ -3,8 +3,6 @@ import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { getSongs } from '.'
 
-export const dynamic = 'force-dynamic'
-
 function getCookies() {
 	return cookies()
 }
