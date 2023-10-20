@@ -38,9 +38,11 @@ export function AuthButtons() {
 			{!user && (
 				<>
 					<li>
-						<PrimaryBtn onClick={open}>Log in</PrimaryBtn>
+						<PrimaryBtn onClick={open} theme="emerald">
+							Log in
+						</PrimaryBtn>
 					</li>
-					<li>
+					<li className="hidden md:flex md:justify-center md:items-center">
 						<SecondaryBtn onClick={open}>Sign up</SecondaryBtn>
 					</li>
 				</>

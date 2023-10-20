@@ -9,7 +9,7 @@ export function Box2({
 }) {
 	return (
 		<div
-			className={`w-full h-full rounded-md bg-neutral-700 p-4 ${
+			className={`w-full h-full rounded-md bg-neutral-700 md:p-4 p-2 ${
 				extraStyles ?? ''
 			}`}
 		>

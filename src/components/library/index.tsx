@@ -2,7 +2,7 @@
 
 import { DiscIcon, PLusIcon } from '@icons'
 import { type Song } from '@models'
-import { SongCard } from '@components'
+import { AuthButtons, Box2, SongCard } from '@components'
 import { useAuthModalStore, useUploadModalStore, useUser } from '../../hooks'
 
 export function Library({ songs }: { songs: Song[] }) {
@@ -16,8 +16,6 @@ export function Library({ songs }: { songs: Song[] }) {
 			openAuthModal()
 			return
 		}
-
-		// TODO: check for subscription type
 
 		openUploadModal()
 		return
@@ -35,14 +33,30 @@ export function Library({ songs }: { songs: Song[] }) {
 				</button>
 			</header>
 			<ul className="flex flex-col overflow-y-auto gap-2 h-full w-[calc(100%-6.5px)]">
-				{songs.length >= 1 ? (
+				{songs.length >= 1 &&
 					songs.map((song) => (
 						<li key={song.id} className="w-full">
 							<SongCard song={song} />
 						</li>
-					))
-				) : (
-					<span className="text-neutral-400">no songs available</span>
+					))}
+				{user && songs.length === 0 && (
+					<li>
+						<span className="text-neutral-400">
+							no songs available
+						</span>
+					</li>
+				)}
+				{!user && (
+					<>
+						<li>
+							<Box2 extraStyles="flex flex-col gap-4">
+								<span className="text-neutral-200 text-center">
+									To to see your library, you must log in.
+								</span>
+								<AuthButtons />
+							</Box2>
+						</li>
+					</>
 				)}
 			</ul>
 		</section>

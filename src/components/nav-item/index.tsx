@@ -12,7 +12,7 @@ export function NavItem({ name, icon: Icon, href, isActive }: NavItem) {
 	return (
 		<Link
 			href={href}
-			className="flex lg:gap-x-4 justify-start items-center group cursor-pointer px-2"
+			className="flex lg:gap-x-4 justify-start items-center group cursor-pointer md:px-2 px-[7px]"
 		>
 			<Icon className={`${color} w-5 h-5`} />
 			<span className={`${color} font-semibold hidden lg:inline-block`}>

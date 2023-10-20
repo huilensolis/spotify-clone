@@ -13,6 +13,9 @@ const config: Config = {
 			colors: {
 				'cm-black': '#121212',
 			},
+			screens: {
+				'350px': '350px',
+			},
 		},
 	},
 }

@@ -3,7 +3,7 @@ import { SquareSongCard } from '@components'
 
 export function SongList({ songs }: { songs: Song[] }) {
 	return (
-		<ul className="flex flex-wrap gap-4 p-6 w-full">
+		<ul className="flex flex-wrap md:gap-4 gap-2 md:p-6 p-2 w-full 350px:justify-normal justify-center">
 			{songs.length >= 1 ? (
 				songs.map((song) => (
 					<li key={song.id}>

@@ -76,7 +76,7 @@ export function SearchSongs() {
 	}
 	return (
 		<>
-			<div className="w-full flex flex-col gap-2 p-6">
+			<div className="w-full flex flex-col gap-2 md:p-6 p-2">
 				<Input
 					type="text"
 					placeholder="Carmilia"

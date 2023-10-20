@@ -34,9 +34,12 @@ export function Nav() {
 	)
 	return (
 		<ul className="w-full flex lg:justify-start justify-between">
-			<div className="flex lg:flex-col gap-4">
+			<ul className="flex lg:flex-col lg:gap-4">
 				{routes.map((route) => (
-					<li key={route.href}>
+					<li
+						key={route.href}
+						className="flex justify-start items-center"
+					>
 						<NavItemComponent
 							href={route.href}
 							icon={route.icon}
@@ -45,7 +48,7 @@ export function Nav() {
 						/>
 					</li>
 				))}
-			</div>
+			</ul>
 			<div className="lg:hidden inline-block">
 				<AuthButtons />
 			</div>
