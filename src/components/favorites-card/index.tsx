@@ -2,7 +2,7 @@ import { TriangleIcon, HeartFill } from '@icons'
 
 export function FavoritesCard() {
 	return (
-		<article className="flex rounded-md overflow-hidden cursor-pointer group relative backdrop-blur-sm bg-neutral-400/20 h-16 md:w-64 w-full max-w-xs">
+		<article className="flex rounded-md overflow-hidden cursor-pointer group relative backdrop-blur-sm bg-neutral-400/20 h-16 md:w-72 w-full">
 			<figure className="flex w-16 h-16 justify-center items-center bg-gradient-to-tl from-purple-400 to-blue-800">
 				<HeartFill className="fill-neutral-50" />
 			</figure>

@@ -9,6 +9,12 @@ export interface Song {
 	image_path: string
 }
 
+export interface LikedSong {
+	song_id: string
+	created_at: string
+	user_id: string
+}
+
 export interface Product {
 	id: string
 	active?: boolean

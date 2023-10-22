@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowLeftIcon, HeartFill, TriangleIcon } from '@icons'
+import { ArrowLeftIcon } from '@icons'
 
 import { useRouter } from 'next/navigation'
 import { AuthButtons } from '@components'

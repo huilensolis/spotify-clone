@@ -1,7 +1,8 @@
 'use client'
 
-import { Box2, Input, SongCard } from '@components'
 import { useEffect, useRef, useState } from 'react'
+
+import { Box2, Input, SongCard, LikeButton } from '@components'
 import { Song } from '@models'
 
 export function SearchSongs() {
@@ -91,7 +92,12 @@ export function SearchSongs() {
 							{songs.length >= 1 &&
 								songs.map((song) => (
 									<li key={song.id}>
-										<SongCard song={song} />
+										<SongCard
+											song={song}
+											leftSide={
+												<LikeButton songId={song.id} />
+											}
+										/>
 									</li>
 								))}
 							{errorMessage.length >= 1 && (

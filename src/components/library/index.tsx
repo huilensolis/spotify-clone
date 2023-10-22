@@ -1,9 +1,9 @@
 'use client'
 
-import { DiscIcon, PLusIcon } from '@icons'
+import { DiscIcon, PLusIcon, TriangleIcon } from '@icons'
 import { type Song } from '@models'
-import { AuthButtons, Box2, SongCard } from '@components'
-import { useAuthModalStore, useUploadModalStore, useUser } from '../../hooks'
+import { SongCard } from '@components'
+import { useAuthModalStore, useUploadModalStore, useUser } from '@hooks'
 
 export function Library({ songs }: { songs: Song[] }) {
 	const { open: openAuthModal } = useAuthModalStore()
@@ -36,30 +36,26 @@ export function Library({ songs }: { songs: Song[] }) {
 				{songs.length >= 1 &&
 					songs.map((song) => (
 						<li key={song.id} className="w-full">
-							<SongCard song={song} />
+							<SongCard
+								song={song}
+								leftSide={
+									<figure className="aspect-square h-full w-[calc(0.5rem*2+4rem)] p-2 hidden group-hover:md:flex items-center justify-center">
+										<div className="h-3/4 w-3/4 bg-green-500 rounded-full transition-all delay-75 flex justify-center items-center hover:scale-105">
+											<TriangleIcon className="fill-neutral-900 transition-all delay-75 w-6 h-6 text-center flex justify-center items-center" />
+										</div>
+									</figure>
+								}
+							/>
 						</li>
 					))}
-				{user && songs.length === 0 && (
+				{songs.length === 0 && (
 					<li>
 						<span className="text-neutral-400">
 							no songs available
 						</span>
 					</li>
 				)}
-				{!user && (
-					<>
-						<li>
-							<Box2 extraStyles="flex flex-col gap-4">
-								<span className="text-neutral-200 text-center">
-									To to see your library, you must log in.
-								</span>
-								<AuthButtons />
-							</Box2>
-						</li>
-					</>
-				)}
 			</ul>
 		</section>
 	)
 }
-//h-[calc(100vh-180px)] w-[calc(100%-7px)]

@@ -25,9 +25,9 @@ export function Nav() {
 			},
 			{
 				name: 'Favorites',
-				href: 'fav',
+				href: 'favorites',
 				icon: HeartFill,
-				isActive: currentPath === 'fav',
+				isActive: currentPath === 'favorites',
 			},
 		],
 		[currentPath]
