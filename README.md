@@ -1,6 +1,14 @@
 # Spotify Clone
 
 A FullStack Spotify clone built with Next JS, React, Supabase, PostgreSQL and Tailwind.
+The web contains operations such as searching, listing favourites songs, playing songs, uploading songs and logging in / signing up
+
+![1697989855](https://github.com/Huilensolis/spotify-clone/assets/113150193/c64def47-f66c-426e-9c6c-dbe51805a7bf)
+![1697990089](https://github.com/Huilensolis/spotify-clone/assets/113150193/c5151402-42e5-4902-a4d6-2caf65f0d841)
+
+
+
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
