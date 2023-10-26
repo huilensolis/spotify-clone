@@ -4,9 +4,8 @@ import { useEffect, useState } from 'react'
 import { useSessionContext } from '@supabase/auth-helpers-react'
 import toast from 'react-hot-toast'
 
-import { SongCard } from '@components'
+import { SongCard, LikeButton } from '@components'
 import { Song, LikedSong } from '@models'
-import { TriangleIcon } from '@icons'
 import { useUser } from '@hooks'
 
 export function FavoriteSongs() {
@@ -82,11 +81,7 @@ export function FavoriteSongs() {
 						<SongCard
 							song={song}
 							rightSide={
-								<figure className="aspect-square h-full w-[calc(0.5rem*2+4rem)] p-2 hidden group-hover:md:flex items-center justify-center">
-									<div className="h-3/4 w-3/4 bg-green-500 rounded-full transition-all delay-75 flex justify-center items-center hover:scale-105">
-										<TriangleIcon className="fill-neutral-900 transition-all delay-75 w-6 h-6 text-center flex justify-center items-center" />
-									</div>
-								</figure>
+								<LikeButton songId={song.id} />
 							}
 						/>
 					</li>
