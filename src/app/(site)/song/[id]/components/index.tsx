@@ -1,36 +1,10 @@
 'use client'
 
 import { Header, SongCard } from '@components'
-import { useEffect, useState } from 'react'
-import { Song } from '@models'
-import { useSessionContext } from '@supabase/auth-helpers-react'
-import { useLoadImages } from '@hooks'
+import { useLoadImages, useGetSongById } from '@hooks'
 import { TriangleIcon } from '@icons'
 export function SongDetails({ songId }: { songId: string }) {
-	const [song, setSong] = useState<Song | null>(null)
-	const [error, setError] = useState<boolean>(false)
-
-	const { supabaseClient } = useSessionContext()
-
-	useEffect(() => {
-		async function fetchSong() {
-			const { data, error } = await supabaseClient
-				.from('songs')
-				.select('*')
-				.eq('id', songId)
-				.single()
-
-			if (data) {
-				setSong(data)
-			}
-
-			if (error) {
-				// setError(true)
-			}
-		}
-
-		fetchSong()
-	}, [songId, supabaseClient])
+	const { song, isLoading } = useGetSongById(songId)
 
 	const imagePath = useLoadImages(song)
 
@@ -48,17 +22,17 @@ export function SongDetails({ songId }: { songId: string }) {
 					)}
 					<section>
 						<h1 className="text-neutral-50 text-4xl font-bold">
-							{song ? song.title : 'Loading...'}
+							{song && !isLoading ? song.title : 'Loading...'}
 						</h1>
 						<span className="text-neutral-300">
-							{song && song.author}
+							{song && !isLoading && song.author}
 						</span>
 					</section>
 				</article>
 			</Header>
 			<ul className="flex flex-col p-4">
 				<li>
-					{song && (
+					{song && !isLoading && (
 						<SongCard
 							song={song}
 							rightSide={

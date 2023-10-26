@@ -1,12 +1,12 @@
 import { ReactNode } from 'react'
 
-import { Nav, Box, Library } from '@components'
+import { Nav, Box, Library, Player } from '@components'
 import { AsideLayout, MainLayout } from '@layouts'
 import { SupabaseProvider, UserProvider, ModalProvider } from '@providers'
 import { ToasterProvider } from '@providers'
 import { getSongsByUserId } from '@actions'
 
-export const dynamic = "force-dynamic"
+export const dynamic = 'force-dynamic'
 
 export async function GlobalLayout({ children }: { children: ReactNode }) {
 	const userLibrary = await getSongsByUserId()
@@ -27,6 +27,7 @@ export async function GlobalLayout({ children }: { children: ReactNode }) {
 							</Box>
 						</AsideLayout>
 						<MainLayout>{children}</MainLayout>
+						<Player />
 					</UserProvider>
 				</SupabaseProvider>
 			</div>
