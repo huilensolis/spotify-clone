@@ -94,7 +94,7 @@ export function SearchSongs() {
 									<li key={song.id}>
 										<SongCard
 											song={song}
-											leftSide={
+											rightSide={
 												<LikeButton songId={song.id} />
 											}
 										/>
