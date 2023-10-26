@@ -7,6 +7,7 @@ import toast from 'react-hot-toast'
 import { SongCard, LikeButton } from '@components'
 import { Song, LikedSong } from '@models'
 import { useUser } from '@hooks'
+import Link from 'next/link'
 
 export function FavoriteSongs() {
 	const [favoritesSongs, setFavoritesSongs] = useState<LikedSong[]>([])
@@ -78,12 +79,12 @@ export function FavoriteSongs() {
 			{songs.length > 0 &&
 				songs.map((song) => (
 					<li key={song.id}>
-						<SongCard
-							song={song}
-							rightSide={
-								<LikeButton songId={song.id} />
-							}
-						/>
+						<Link href={`/song/${song.id}`}>
+							<SongCard
+								song={song}
+								rightSide={<LikeButton songId={song.id} />}
+							/>
+						</Link>
 					</li>
 				))}
 		</ul>
