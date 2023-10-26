@@ -14,8 +14,8 @@ export function SongCard({
 }) {
 	const imagePath = useLoadImages(song)
 	return (
-		<Link href={`/song/${song.id}`}>
-			<article className="flex justify-between items-center w-full max-h-[calc(0.5rem*2+4rem)] gap-2 bg-transparent hover:md:bg-neutral-800 transition-all delay-75 md:p-2 rounded-md cursor-pointer group">
+		<article className="flex justify-between items-center w-full max-h-[calc(0.5rem*2+4rem)] gap-2 bg-transparent hover:md:bg-neutral-800 transition-all delay-75 md:p-2 rounded-md cursor-pointer group">
+			<Link href={`/song/${song.id}`}>
 				<div className="flex gap-2">
 					{/* eslint-disable-next-line @next/next/no-img-element */}
 					<img
@@ -30,8 +30,8 @@ export function SongCard({
 						<p className="text-neutral-400">{song.author}</p>
 					</section>
 				</div>
-				{rightSide}
-			</article>
-		</Link>
+			</Link>
+			{rightSide}
+		</article>
 	)
 }

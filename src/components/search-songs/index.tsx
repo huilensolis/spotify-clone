@@ -95,7 +95,11 @@ export function SearchSongs() {
 										<SongCard
 											song={song}
 											rightSide={
-												<LikeButton songId={song.id} />
+												<div className="md:p-6 p-2">
+													<LikeButton
+														songId={song.id}
+													/>
+												</div>
 											}
 										/>
 									</li>

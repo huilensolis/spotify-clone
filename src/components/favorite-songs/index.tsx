@@ -14,8 +14,6 @@ export function FavoriteSongs() {
 	const [songs, setSongs] = useState<Song[]>([])
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 
-	console.log('component mounted')
-
 	const { user } = useUser()
 
 	const { supabaseClient } = useSessionContext()
@@ -79,12 +77,14 @@ export function FavoriteSongs() {
 			{songs.length > 0 &&
 				songs.map((song) => (
 					<li key={song.id}>
-						<Link href={`/song/${song.id}`}>
-							<SongCard
-								song={song}
-								rightSide={<LikeButton songId={song.id} />}
-							/>
-						</Link>
+						<SongCard
+							song={song}
+							rightSide={
+								<div className="md:p-6 p-2">
+									<LikeButton songId={song.id} />
+								</div>
+							}
+						/>
 					</li>
 				))}
 		</ul>
