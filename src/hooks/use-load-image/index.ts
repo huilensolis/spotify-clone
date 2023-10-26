@@ -1,7 +1,7 @@
 import { Song } from '@models'
 import { useSupabaseClient } from '@supabase/auth-helpers-react'
 
-export function useLoadImages(song: Song) {
+export function useLoadImages(song: Song | null) {
 	const supabaseCLient = useSupabaseClient()
 
 	if (!song) {

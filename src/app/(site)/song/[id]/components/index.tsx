@@ -7,7 +7,7 @@ import { useSessionContext } from '@supabase/auth-helpers-react'
 import { useLoadImages } from '@hooks'
 import { TriangleIcon } from '@icons'
 export function SongDetails({ songId }: { songId: string }) {
-	const [song, setSong] = useState<Song>({} as Song)
+	const [song, setSong] = useState<Song | null>(null)
 	const [error, setError] = useState<boolean>(false)
 
 	const { supabaseClient } = useSessionContext()
@@ -25,7 +25,7 @@ export function SongDetails({ songId }: { songId: string }) {
 			}
 
 			if (error) {
-				setError(true)
+				// setError(true)
 			}
 		}
 
@@ -56,7 +56,7 @@ export function SongDetails({ songId }: { songId: string }) {
 					</section>
 				</article>
 			</Header>
-			<ul className='flex flex-col p-4'>
+			<ul className="flex flex-col p-4">
 				<li>
 					{song && (
 						<SongCard
