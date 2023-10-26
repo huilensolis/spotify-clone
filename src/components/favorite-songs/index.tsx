@@ -12,6 +12,9 @@ import { useUser } from '@hooks'
 export function FavoriteSongs() {
 	const [favoritesSongs, setFavoritesSongs] = useState<LikedSong[]>([])
 	const [songs, setSongs] = useState<Song[]>([])
+	const [isLoading, setIsLoading] = useState<boolean>(false)
+
+	console.log('component mounted')
 
 	const { user } = useUser()
 
@@ -23,6 +26,7 @@ export function FavoriteSongs() {
 		}
 
 		async function fetchData() {
+			setIsLoading(true)
 			const { data, error } = await supabaseClient
 				.from('liked_songs')
 				.select('*')
@@ -34,6 +38,7 @@ export function FavoriteSongs() {
 			if (data) {
 				setFavoritesSongs(data)
 			}
+			setIsLoading(false)
 		}
 
 		fetchData()
@@ -57,7 +62,6 @@ export function FavoriteSongs() {
 				}
 			}
 			if (newSongsArray.length > 0) {
-				console.log(newSongsArray)
 				setSongs(newSongsArray)
 			}
 		}
@@ -68,15 +72,16 @@ export function FavoriteSongs() {
 
 	return (
 		<ul className="p-6">
-			{songs.length === 0 && (
-				<span className="text-400">no songs available</span>
+			{songs.length === 0 && !isLoading && (
+				<span className="text-neutral-400">no songs available</span>
 			)}
+			{isLoading && <span className="text-neutral-400">Loading...</span>}
 			{songs.length > 0 &&
 				songs.map((song) => (
 					<li key={song.id}>
 						<SongCard
 							song={song}
-							leftSide={
+							rightSide={
 								<figure className="aspect-square h-full w-[calc(0.5rem*2+4rem)] p-2 hidden group-hover:md:flex items-center justify-center">
 									<div className="h-3/4 w-3/4 bg-green-500 rounded-full transition-all delay-75 flex justify-center items-center hover:scale-105">
 										<TriangleIcon className="fill-neutral-900 transition-all delay-75 w-6 h-6 text-center flex justify-center items-center" />
