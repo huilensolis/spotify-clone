@@ -1,14 +1,21 @@
 'use client'
 
-import { DiscIcon, PLusIcon, TriangleIcon } from '@icons'
+import { DiscIcon, PLusIcon } from '@icons'
 import { type Song } from '@models'
-import { SongCard } from '@components'
-import { useAuthModalStore, useUploadModalStore, useUser } from '@hooks'
+import { PlayBtn, SongCard } from '@components'
+import {
+	useAuthModalStore,
+	useOnPlay,
+	useUploadModalStore,
+	useUser,
+} from '@hooks'
 
 export function Library({ songs }: { songs: Song[] }) {
 	const { open: openAuthModal } = useAuthModalStore()
 	const { open: openUploadModal } = useUploadModalStore()
 	const { user } = useUser()
+
+	const onPlay = useOnPlay(songs)
 
 	const handleOnclick = () => {
 		// we check the user is logged
@@ -19,6 +26,10 @@ export function Library({ songs }: { songs: Song[] }) {
 
 		openUploadModal()
 		return
+	}
+
+	function handleOnPlay(id: string) {
+		onPlay(id)
 	}
 
 	return (
@@ -39,11 +50,9 @@ export function Library({ songs }: { songs: Song[] }) {
 							<SongCard
 								song={song}
 								rightSide={
-									<figure className="aspect-square h-full w-[calc(0.5rem*2+4rem)] p-2 hidden group-hover:md:flex items-center justify-center">
-										<div className="h-3/4 w-3/4 bg-green-500 rounded-full transition-all delay-75 flex justify-center items-center hover:scale-105">
-											<TriangleIcon className="fill-neutral-900 transition-all delay-75 w-6 h-6 text-center flex justify-center items-center" />
-										</div>
-									</figure>
+									<PlayBtn
+										onPlay={() => handleOnPlay(song.id)}
+									/>
 								}
 							/>
 						</li>
@@ -51,7 +60,7 @@ export function Library({ songs }: { songs: Song[] }) {
 				{songs.length === 0 && (
 					<li>
 						<span className="text-neutral-400">
-							no songs available
+							no songs available.
 						</span>
 					</li>
 				)}

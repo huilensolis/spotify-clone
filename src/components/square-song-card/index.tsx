@@ -1,10 +1,17 @@
 'use client'
+
 import { Song } from '@models'
 import { useLoadImages } from '@hooks'
-import { TriangleIcon } from '@icons'
 import Link from 'next/link'
+import { PlayBtn } from '@components'
 
-export function SquareSongCard({ song }: { song: Song }) {
+export function SquareSongCard({
+	song,
+	onPlay,
+}: {
+	song: Song
+	onPlay: () => void
+}) {
 	const imagePath = useLoadImages(song)
 	return (
 		<Link href={`/song/${song.id}`}>
@@ -16,10 +23,8 @@ export function SquareSongCard({ song }: { song: Song }) {
 						alt={song.title}
 						className="w-full h-full object-cover rounded-md"
 					/>
-					<figure className="aspect-square h-[70px] w-[70px] p-1 absolute right-0 bottom-0 hidden group-hover:md:flex items-center justify-center">
-						<div className="h-full w-full bg-green-500 rounded-full transition-all delay-75 flex justify-center items-center hover:scale-105">
-							<TriangleIcon className="fill-neutral-900 transition-all delay-75 w-6 h-6 text-center flex justify-center items-center" />
-						</div>
+					<figure className="aspect-square h-[70px] w-[70px] p-1 absolute right-0 bottom-0 hidden group-hover:md:flex items-center justify-center z-10">
+						<PlayBtn onPlay={onPlay} />
 					</figure>
 				</div>
 				<section className="flex flex-col justify-between">

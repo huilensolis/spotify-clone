@@ -1,10 +1,12 @@
+'use client'
+
 import { useSessionContext } from '@supabase/auth-helpers-react'
 import { useEffect, useMemo, useState } from 'react'
 import toast from 'react-hot-toast'
 
 import { Song } from '@models'
 
-export function useGetSongById(id: string) {
+export function useGetSongById(id: string | null) {
 	const [song, setSong] = useState<Song | null>(null)
 	const [isLoading, setIsLoading] = useState<boolean>(false)
 

@@ -1,13 +1,18 @@
 'use client'
 
-import { Header, SongCard } from '@components'
-import { useLoadImages, useGetSongById } from '@hooks'
-import { TriangleIcon } from '@icons'
+import { Header, SongCard, PlayBtn } from '@components'
+import { useLoadImages, useGetSongById, useOnPlay } from '@hooks'
+
 export function SongDetails({ songId }: { songId: string }) {
 	const { song, isLoading } = useGetSongById(songId)
 
 	const imagePath = useLoadImages(song)
 
+	const onPlay = useOnPlay([song!])
+
+	function handleOnPlay(id: string) {
+		onPlay(id)
+	}
 	return (
 		<>
 			<Header>
@@ -36,10 +41,11 @@ export function SongDetails({ songId }: { songId: string }) {
 						<SongCard
 							song={song}
 							rightSide={
-								<figure className="aspect-square h-full w-[calc(0.5rem*2+4rem)] p-2 hidden group-hover:md:flex items-center justify-center">
-									<div className="h-3/4 w-3/4 bg-green-500 rounded-full transition-all delay-75 flex justify-center items-center hover:scale-105">
-										<TriangleIcon className="fill-neutral-900 transition-all delay-75 w-6 h-6 text-center flex justify-center items-center" />
-									</div>
+								<figure className="aspect-square h-[70px] w-[70px] p-1 hidden group-hover:md:flex items-center justify-center">
+									<PlayBtn
+										songs={[song]}
+										onPlay={() => handleOnPlay(song.id)}
+									/>
 								</figure>
 							}
 						/>
