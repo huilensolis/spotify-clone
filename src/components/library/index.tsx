@@ -1,6 +1,6 @@
 'use client'
 
-import { DiscIcon, PLusIcon } from '@icons'
+import { DiscIcon, PlusIcon } from '@icons'
 import { type Song } from '@models'
 import { PlayBtn, SongCard } from '@components'
 import {
@@ -40,7 +40,7 @@ export function Library({ songs }: { songs: Song[] }) {
 					<h2 className="text-neutral-400 font-semibold">Library</h2>
 				</section>
 				<button onClick={handleOnclick}>
-					<PLusIcon className="h-6 w-6 fill-neutral-400 hover:fill-neutral-50 transition-all delay-75" />
+					<PlusIcon className="h-6 w-6 fill-neutral-400 hover:fill-neutral-50 transition-all delay-75" />
 				</button>
 			</header>
 			<ul className="flex flex-col overflow-y-auto gap-2 h-full w-[calc(100%-6.5px)]">

@@ -16,16 +16,16 @@ export function SongDetails({ songId }: { songId: string }) {
 	return (
 		<>
 			<Header>
-				<article className="flex gap-4">
+				<article className="flex gap-4 md:flex-row flex-col items-center">
 					{imagePath && (
-						// eslint-disable-next-line @next/next/no-img-element
+						/* eslint-disable-next-line @next/next/no-img-element */
 						<img
 							src={imagePath}
 							alt={song?.title}
-							className="w-32 h-32 rounded-sm object-cover"
+							className="w-48 h-48 rounded-sm object-cover bg-center"
 						/>
 					)}
-					<section>
+					<section className="flex items-start h-full md:w-max w-full flex-col">
 						<h1 className="text-neutral-50 text-4xl font-bold">
 							{song && !isLoading ? song.title : 'Loading...'}
 						</h1>
@@ -41,9 +41,8 @@ export function SongDetails({ songId }: { songId: string }) {
 						<SongCard
 							song={song}
 							rightSide={
-								<figure className="aspect-square h-[70px] w-[70px] p-1 hidden group-hover:md:flex items-center justify-center">
+								<figure className="aspect-square h-[70px] w-[70px] p-1 flex md:hidden group-hover:md:flex items-center justify-center">
 									<PlayBtn
-										songs={[song]}
 										onPlay={() => handleOnPlay(song.id)}
 									/>
 								</figure>

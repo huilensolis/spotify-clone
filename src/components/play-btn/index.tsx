@@ -2,11 +2,7 @@
 
 import { TriangleIcon } from '@icons'
 
-export function PlayBtn({
-	onPlay,
-}: {
-	onPlay: () => void
-}) {
+export function PlayBtn({ onPlay }: { onPlay: () => void }) {
 	return (
 		<button
 			className="aspect-square h-full w-full flex items-center justify-center"
