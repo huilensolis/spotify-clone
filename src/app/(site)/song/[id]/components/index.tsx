@@ -1,6 +1,6 @@
 'use client'
 
-import { Header, SongCard, PlayBtn } from '@components'
+import { Header, SongCard } from '@components'
 import { useLoadImages, useGetSongById, useOnPlay } from '@hooks'
 
 export function SongDetails({ songId }: { songId: string }) {
@@ -40,13 +40,7 @@ export function SongDetails({ songId }: { songId: string }) {
 					{song && !isLoading && (
 						<SongCard
 							song={song}
-							rightSide={
-								<figure className="aspect-square h-[70px] w-[70px] p-1 flex md:hidden group-hover:md:flex items-center justify-center">
-									<PlayBtn
-										onPlay={() => handleOnPlay(song.id)}
-									/>
-								</figure>
-							}
+							onPlay={() => handleOnPlay(song.id)}
 						/>
 					)}
 				</li>

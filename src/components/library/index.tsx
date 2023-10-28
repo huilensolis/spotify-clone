@@ -49,11 +49,7 @@ export function Library({ songs }: { songs: Song[] }) {
 						<li key={song.id} className="w-full">
 							<SongCard
 								song={song}
-								rightSide={
-									<PlayBtn
-										onPlay={() => handleOnPlay(song.id)}
-									/>
-								}
+								onPlay={() => handleOnPlay(song.id)}
 							/>
 						</li>
 					))}

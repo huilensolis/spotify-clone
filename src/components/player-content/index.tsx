@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+// @ts-ignore
 import useSound from 'use-sound'
 
 import { Song } from '@models'
