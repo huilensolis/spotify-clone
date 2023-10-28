@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-import { Box2, Input, SongCard, LikeButton } from '@components'
+import { Box2, Input, SongCard } from '@components'
 import { Song } from '@models'
 import { useOnPlay } from '../../hooks'
 
@@ -10,7 +10,6 @@ export function SearchSongs() {
 	const [inputValue, setInputValue] = useState('')
 	const [searchValue, setSearchValue] = useState('')
 	const [songs, setSongs] = useState<Song[]>([])
-	const [errorMessage, setErrorMessage] = useState<string>('')
 	const [isLoading, setIsloading] = useState<boolean>(false)
 
 	const isFirstTimeRender = useRef(true)
@@ -38,7 +37,6 @@ export function SearchSongs() {
 		}
 		if (searchValue === '') {
 			setSongs([])
-			setErrorMessage('')
 			return
 		}
 
@@ -57,15 +55,10 @@ export function SearchSongs() {
 
 				if (songsSearched.length >= 1) {
 					setSongs(songsSearched)
-					setErrorMessage('')
 				} else {
 					setSongs([])
-					setErrorMessage('not found')
 				}
 			} catch (error) {
-				setErrorMessage(
-					'there its been an error trying to get the songs, please try again'
-				)
 				console.log(error)
 			}
 			setIsloading(false)
@@ -91,31 +84,37 @@ export function SearchSongs() {
 					className="w-full"
 					onChange={(e) => handleOnchange(e)}
 				/>
-				{(songs.length >= 1 ||
-					errorMessage.length >= 1 ||
-					isLoading) && (
-					<Box2>
-						<ul>
-							{songs.length >= 1 &&
-								songs.map((song) => (
-									<li key={song.id}>
-										<SongCard
-											song={song}
-											onPlay={() => handleOnPlay(song.id)}
-										/>
-									</li>
-								))}
-							{errorMessage.length >= 1 && (
-								<p className="text-neutral-500">
-									{errorMessage}
-								</p>
-							)}
-							{isLoading && (
-								<p className="text-neutral-500">Loading</p>
-							)}
-						</ul>
-					</Box2>
-				)}
+				<ul>
+					{songs.length > 0 &&
+						!isLoading &&
+						songs.length >= 1 &&
+						songs.map((song) => (
+							<li key={song.id}>
+								<SongCard
+									song={song}
+									onPlay={() => handleOnPlay(song.id)}
+								/>
+							</li>
+						))}
+					{!isLoading && songs.length === 0 && searchValue !== '' && (
+						<p className="text-neutral-400">not found</p>
+					)}
+					{isLoading &&
+						Array(6)
+							.fill('')
+							.map((_, index) => (
+								<article
+									className="flex p-2 gap-2 animate-pulse"
+									key={index}
+								>
+									<figure className="h-16 w-16 bg-neutral-600 rounded-sm" />
+									<section className="flex flex-col justify-between">
+										<h3 className="bg-neutral-600 h-6 w-64 rounded-full" />
+										<p className="bg-neutral-600 h-4 w-36 rounded-full" />
+									</section>
+								</article>
+							))}
+				</ul>
 			</div>
 		</>
 	)

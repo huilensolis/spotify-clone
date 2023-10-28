@@ -11,7 +11,7 @@ import { useOnPlay, useUser } from '@hooks'
 export function FavoriteSongs() {
 	const [favoritesSongs, setFavoritesSongs] = useState<LikedSong[]>([])
 	const [songs, setSongs] = useState<Song[]>([])
-	const [isLoading, setIsLoading] = useState<boolean>(false)
+	const [isLoading, setIsLoading] = useState<boolean>(true)
 
 	const { user } = useUser()
 
@@ -78,8 +78,8 @@ export function FavoriteSongs() {
 			{songs.length === 0 && !isLoading && (
 				<span className="text-neutral-400">no songs available</span>
 			)}
-			{isLoading && <span className="text-neutral-400">Loading...</span>}
 			{songs.length > 0 &&
+				!isLoading &&
 				songs.map((song) => (
 					<li key={song.id}>
 						<SongCard
@@ -88,6 +88,18 @@ export function FavoriteSongs() {
 						/>
 					</li>
 				))}
+			{isLoading &&
+				Array(6)
+					.fill('')
+					.map((_, index) => (
+						<article className="flex p-2 gap-2 animate-pulse" key={index}>
+							<figure className="h-16 w-16 bg-neutral-600 rounded-sm" />
+							<section className="flex flex-col justify-between">
+								<h3 className="bg-neutral-600 h-6 w-64 rounded-full" />
+								<p className="bg-neutral-600 h-4 w-36 rounded-full" />
+							</section>
+						</article>
+					))}
 		</ul>
 	)
 }
