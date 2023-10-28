@@ -4,10 +4,9 @@ import { useEffect, useState } from 'react'
 import { useSessionContext } from '@supabase/auth-helpers-react'
 import toast from 'react-hot-toast'
 
-import { SongCard, LikeButton } from '@components'
+import { SongCard } from '@components'
 import { Song, LikedSong } from '@models'
 import { useOnPlay, useUser } from '@hooks'
-import Link from 'next/link'
 
 export function FavoriteSongs() {
 	const [favoritesSongs, setFavoritesSongs] = useState<LikedSong[]>([])

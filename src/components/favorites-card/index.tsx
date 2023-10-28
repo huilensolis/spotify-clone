@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 export function FavoritesCard() {
 	return (
-		<Link href="/favorites">
-			<article className="flex rounded-md overflow-hidden cursor-pointer group relative backdrop-blur-sm bg-neutral-400/20 h-16 md:w-72 w-full">
+		<Link href="/favorites" className="w-max">
+			<article className="flex rounded-md overflow-hidden cursor-pointer group relative backdrop-blur-sm bg-neutral-400/20 h-16 md:w-72 hover:bg-neutral-300/20 transition-all delay-75">
 				<figure className="flex w-16 h-16 justify-center items-center bg-gradient-to-tl from-purple-400 to-blue-800">
 					<HeartFill className="fill-neutral-50" />
 				</figure>

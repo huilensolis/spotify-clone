@@ -9,7 +9,7 @@ import { ReactNode } from 'react'
 export function Header({ children }: { children: ReactNode }) {
 	const router = useRouter()
 	return (
-		<header className="flex flex-col h-fit bg-gradient-to-b from-emerald-800 md:p-6 p-2 rounded-md overflow-hidden gap-4">
+		<header className="flex flex-col bg-gradient-to-b from-emerald-800 md:p-6 p-2 rounded-md gap-4 pb-10">
 			<div className="gap-2 lg:flex hidden justify-between w-full">
 				<div className="flex gap-2 justify-center items-center">
 					<button
