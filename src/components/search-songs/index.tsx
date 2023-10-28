@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { Box2, Input, SongCard, LikeButton } from '@components'
 import { Song } from '@models'
+import { useOnPlay } from '../../hooks'
 
 export function SearchSongs() {
 	const [inputValue, setInputValue] = useState('')
@@ -75,6 +76,12 @@ export function SearchSongs() {
 	function handleOnchange(e: React.FormEvent<HTMLInputElement>) {
 		setInputValue(e.currentTarget.value)
 	}
+
+	const onPlay = useOnPlay(songs)
+
+	function handleOnPlay(id: string) {
+		onPlay(id)
+	}
 	return (
 		<>
 			<div className="w-full flex flex-col gap-2 md:p-6 p-2">
@@ -94,13 +101,7 @@ export function SearchSongs() {
 									<li key={song.id}>
 										<SongCard
 											song={song}
-											rightSide={
-												<div className="md:p-6 p-2">
-													<LikeButton
-														songId={song.id}
-													/>
-												</div>
-											}
+											onPlay={() => handleOnPlay(song.id)}
 										/>
 									</li>
 								))}

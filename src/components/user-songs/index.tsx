@@ -44,11 +44,7 @@ export function UserSongs({ userId }: { userId: string }) {
 					{userSongs.map((song) => (
 						<li key={song.id}>
 							<SongCard
-								rightSide={
-									<PlayBtn
-										onPlay={() => handleOnPLay(song.id)}
-									/>
-								}
+								onPlay={() => handleOnPLay(song.id)}
 								song={song}
 							/>
 						</li>

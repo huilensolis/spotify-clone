@@ -96,9 +96,9 @@ export function LikeButton({ songId }: { songId: string }) {
 			onClick={handleOnClick}
 		>
 			{isLiked ? (
-				<HeartFill className="fill-emerald-600" />
+				<HeartFill className="fill-emerald-600 h-6 w-6" />
 			) : (
-				<HeartEmpty className="fill-neutral-50" />
+				<HeartEmpty className="fill-neutral-50 h-6 w-6" />
 			)}
 		</button>
 	)

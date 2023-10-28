@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 
 import { SongCard, LikeButton } from '@components'
 import { Song, LikedSong } from '@models'
-import { useUser } from '@hooks'
+import { useOnPlay, useUser } from '@hooks'
 import Link from 'next/link'
 
 export function FavoriteSongs() {
@@ -68,6 +68,12 @@ export function FavoriteSongs() {
 		}
 	}, [favoritesSongs, supabaseClient])
 
+	const onPlay = useOnPlay(songs)
+
+	function handleOnPlay(id: string) {
+		onPlay(id)
+	}
+
 	return (
 		<ul className="p-6">
 			{songs.length === 0 && !isLoading && (
@@ -79,11 +85,7 @@ export function FavoriteSongs() {
 					<li key={song.id}>
 						<SongCard
 							song={song}
-							rightSide={
-								<div className="md:p-6 p-2">
-									<LikeButton songId={song.id} />
-								</div>
-							}
+							onPlay={() => handleOnPlay(song.id)}
 						/>
 					</li>
 				))}

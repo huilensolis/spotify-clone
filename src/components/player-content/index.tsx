@@ -71,6 +71,7 @@ export function PlayerContent({
 
 		if (!nextSong) {
 			player.setId(player.ids[0])
+			return
 		}
 
 		player.setId(nextSong)
@@ -89,6 +90,7 @@ export function PlayerContent({
 
 		if (!lastSong) {
 			player.setId(player.ids[player.ids.length - 1])
+			return
 		}
 
 		player.setId(lastSong)
