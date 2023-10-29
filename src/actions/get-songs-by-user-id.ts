@@ -22,7 +22,7 @@ export async function getSongsByUserId(): Promise<Song[]> {
 		return []
 	}
 
-	if (sessionData.session?.user.id) {
+	if (!sessionData.session?.user.id) {
 		return []
 	}
 

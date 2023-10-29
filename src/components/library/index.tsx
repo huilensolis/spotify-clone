@@ -2,7 +2,7 @@
 
 import { DiscIcon, PlusIcon } from '@icons'
 import { type Song } from '@models'
-import { PlayBtn, SongCard } from '@components'
+import { SongCard } from '@components'
 import {
 	useAuthModalStore,
 	useOnPlay,
